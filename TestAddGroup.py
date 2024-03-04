@@ -9,7 +9,7 @@ import unittest, time, re
 
 class TestAddGroup(unittest.TestCase):
     def setUp(self):
-        self.wd = webdriver.Chrome(executable_path=r'')
+        self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(30)
     
     def test_add_group(self):
@@ -20,6 +20,8 @@ class TestAddGroup(unittest.TestCase):
         wd.find_element_by_name("pass").clear()
         wd.find_element_by_name("pass").send_keys("secret")
         wd.find_element_by_xpath("//input[@value='Login']").click()
+        wd.find_element_by_link_text("groups").click()
+        wd.find_element_by_name("new").click()
         wd.find_element_by_name("group_name").clear()
         wd.find_element_by_name("group_name").send_keys("groupnameeee")
         wd.find_element_by_name("group_header").clear()
