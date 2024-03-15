@@ -18,7 +18,7 @@ class ContactHelper:
         wd.find_element_by_name("lastname").send_keys(contact.lastname)
         wd.find_element_by_name("nickname").clear()
         wd.find_element_by_name("nickname").send_keys(contact.nickname)
-        absolute_path = os.path.abspath("../photo.jpg")
+        absolute_path = os.path.abspath(contact.photo_path)
         wd.find_element_by_name("photo").send_keys(absolute_path)
         wd.find_element_by_name("title").clear()
         wd.find_element_by_name("title").send_keys(contact.title)
