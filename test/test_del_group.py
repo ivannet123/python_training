@@ -1,4 +1,3 @@
-import time
 
 
 def test_delete_first_group(app):
@@ -6,4 +5,3 @@ def test_delete_first_group(app):
     app.session.login("admin", "secret")
     app.group.delete_first_group()
     app.session.logout()
-    time.sleep(1)

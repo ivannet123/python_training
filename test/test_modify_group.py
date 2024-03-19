@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from model.group import Group
-import time
 
 
 def test_rename_first_group(app):
@@ -8,7 +7,6 @@ def test_rename_first_group(app):
     app.session.login("admin", "secret")
     app.group.modify_first_group(Group("new name", "", ""))
     app.session.logout()
-    time.sleep(1)
 
 
 def test_change_first_group_header(app):
@@ -16,7 +14,6 @@ def test_change_first_group_header(app):
     app.session.login("admin", "secret")
     app.group.modify_first_group(Group("", "new header", ""))
     app.session.logout()
-    time.sleep(1)
 
 
 def test_change_first_group_footer(app):
@@ -24,4 +21,3 @@ def test_change_first_group_footer(app):
     app.session.login("admin", "secret")
     app.group.modify_first_group(Group("", "", "new footer"))
     app.session.logout()
-    time.sleep(1)

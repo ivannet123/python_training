@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from model.contact import Contact
-import time
 
 
 def test_change_first_contact_name(app):
@@ -28,7 +27,6 @@ def test_change_first_contact_name(app):
                                              ann_month="",
                                              ann_year=""))
     app.session.logout()
-    time.sleep(1)
 
 
 def test_change_first_contact_middlename(app):
@@ -57,7 +55,6 @@ def test_change_first_contact_middlename(app):
                                              ann_month="",
                                              ann_year=""))
     app.session.logout()
-    time.sleep(1)
 
 
 def test_change_first_contact_lastname(app):
@@ -86,4 +83,3 @@ def test_change_first_contact_lastname(app):
                                              ann_month="",
                                              ann_year=""))
     app.session.logout()
-    time.sleep(1)

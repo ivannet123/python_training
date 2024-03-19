@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from model.contact import Contact
-import time
 
 
 def test_add_contact(app):
@@ -30,4 +29,3 @@ def test_add_contact(app):
                                ann_year="1988"
                             ))
     app.session.logout()
-    time.sleep(1)
