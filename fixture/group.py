@@ -12,26 +12,8 @@ class GroupHelper:
         wd = self.app.wd
         wd.find_element_by_link_text("group page").click()
 
-    def create(self, group):
+    def fill_group_information(self, group):
         wd = self.app.wd
-        self.open_groups_page()
-        wd.find_element_by_name("new").click()
-        # fill group form
-        wd.find_element_by_name("group_name").clear()
-        wd.find_element_by_name("group_name").send_keys(group.name)
-        wd.find_element_by_name("group_header").clear()
-        wd.find_element_by_name("group_header").send_keys(group.header)
-        wd.find_element_by_name("group_footer").clear()
-        wd.find_element_by_name("group_footer").send_keys(group.footer)
-        # submit group creation
-        wd.find_element_by_name("submit").click()
-        self.return_to_groups_page()
-
-    def modify_first_group(self, group):
-        wd = self.app.wd
-        self.open_groups_page()
-        wd.find_element_by_name("selected[]").click()
-        wd.find_element_by_name("edit").click()
         if group.name:
             wd.find_element_by_name("group_name").clear()
             wd.find_element_by_name("group_name").send_keys(group.name)
@@ -42,9 +24,24 @@ class GroupHelper:
             wd.find_element_by_name("group_footer").clear()
             wd.find_element_by_name("group_footer").send_keys(group.footer)
 
-        wd.find_element_by_name("update").click()
+    def create(self, group):
+        wd = self.app.wd
+        self.open_groups_page()
+        wd.find_element_by_name("new").click()
+        # fill group form
+        self.fill_group_information(group)
+        # submit group creation
+        wd.find_element_by_name("submit").click()
         self.return_to_groups_page()
 
+    def modify_first_group(self, group):
+        wd = self.app.wd
+        self.open_groups_page()
+        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_name("edit").click()
+        self.fill_group_information(group)
+        wd.find_element_by_name("update").click()
+        self.return_to_groups_page()
 
     def delete_first_group(self):
         wd = self.app.wd

@@ -32,6 +32,7 @@ def test_change_first_contact_name(app):
 
 
 def test_change_first_contact_middlename(app):
+    app.open_home_page()
     app.session.login("admin", "secret")
     app.contact.modify_first_contact(Contact(firstname="",
                                              middlename="new_middle_name",
@@ -60,6 +61,7 @@ def test_change_first_contact_middlename(app):
 
 
 def test_change_first_contact_lastname(app):
+    app.open_home_page()
     app.session.login("admin", "secret")
     app.contact.modify_first_contact(Contact(firstname="",
                                              middlename="",

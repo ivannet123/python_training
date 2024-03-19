@@ -4,6 +4,7 @@ import time
 
 
 def test_add_contact(app):
+    app.open_home_page()
     app.session.login("admin", "secret")
     app.contact.create(Contact(firstname="Ivan",
                                middlename="Ivanovich",
